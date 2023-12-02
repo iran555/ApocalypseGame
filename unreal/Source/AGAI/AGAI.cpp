@@ -1,4 +1,4 @@
-/* Copyright (C) 2023 Iran555 iran555@proton.me
+﻿/* Copyright (C) 2023 Iran555 iran555@proton.me
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -11,20 +11,10 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License. */
+ 
+#include "AGAI.h"
+#include "Modules/ModuleManager.h"
 
-using UnrealBuildTool;
+DEFINE_LOG_CATEGORY(LogAGAI);
 
-public class ApocalypseGameEditorTarget : TargetRules
-{
-	public ApocalypseGameEditorTarget(TargetInfo target) : base(target)
-	{
-		Type = TargetType.Editor;
-		DefaultBuildSettings = BuildSettingsVersion.V4;
-		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_3;
-		ExtraModuleNames.AddRange(new[]
-		{
-			"ApocalypseGame", // primary module
-			"AGAI", // game modules
-		});
-	}
-}
+IMPLEMENT_MODULE(FDefaultModuleImpl, AGAI);

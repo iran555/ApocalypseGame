@@ -4,7 +4,8 @@
 	"Category": "",
 	"Description": "",
 	"Modules": [
-		{ "Name": "ApocalypseGame","Type": "Runtime","LoadingPhase": "Default" }
+		{ "Name": "ApocalypseGame","Type": "Runtime","LoadingPhase": "Default" },
+		{ "Name": "AGAI","Type": "Runtime","LoadingPhase": "Default" }
 	],
 	"Plugins": [
 		{ "Name": "N10XSourceCodeAccess","Enabled": false },

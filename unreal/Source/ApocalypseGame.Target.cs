@@ -24,6 +24,7 @@ public class ApocalypseGameTarget : TargetRules
 		ExtraModuleNames.AddRange(new[]
 		{
 			"ApocalypseGame", // primary module
+			"AGAI", // game modules
 		});
 	}
 }
