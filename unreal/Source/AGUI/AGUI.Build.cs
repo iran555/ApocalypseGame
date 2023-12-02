@@ -1,4 +1,4 @@
-/* Copyright (C) 2023 Iran555 iran555@proton.me
+﻿/* Copyright (C) 2023 Iran555 iran555@proton.me
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,17 +14,19 @@
 
 using UnrealBuildTool;
 
-public class ApocalypseGameTarget : TargetRules
+public class AGUI : ModuleRules
 {
-	public ApocalypseGameTarget(TargetInfo target) : base(target)
+	public AGUI(ReadOnlyTargetRules target) : base(target)
 	{
-		Type = TargetType.Game;
-		DefaultBuildSettings = BuildSettingsVersion.V4;
-		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_3;
-		ExtraModuleNames.AddRange(new[]
+		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
+
+		PublicDependencyModuleNames.AddRange(new[]
 		{
-			"ApocalypseGame", // primary module
-			"AGAI", "AGUI", // game modules
+			"Core", // core
+		});
+		PrivateDependencyModuleNames.AddRange(new[]
+		{
+			"CoreUObject", "Engine", // core
 		});
 	}
 }

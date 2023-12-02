@@ -1,4 +1,4 @@
-/* Copyright (C) 2023 Iran555 iran555@proton.me
+﻿/* Copyright (C) 2023 Iran555 iran555@proton.me
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,19 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License. */
 
-using UnrealBuildTool;
+#pragma once
+#include "CoreMinimal.h"
 
-public class ApocalypseGameTarget : TargetRules
-{
-	public ApocalypseGameTarget(TargetInfo target) : base(target)
-	{
-		Type = TargetType.Game;
-		DefaultBuildSettings = BuildSettingsVersion.V4;
-		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_3;
-		ExtraModuleNames.AddRange(new[]
-		{
-			"ApocalypseGame", // primary module
-			"AGAI", "AGUI", // game modules
-		});
-	}
-}
+DECLARE_LOG_CATEGORY_EXTERN(LogAGUI, Warning, All);
