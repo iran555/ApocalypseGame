@@ -27,6 +27,7 @@ public class AGAI : ModuleRules
         PrivateDependencyModuleNames.AddRange(new[]
         {
             "CoreUObject", "Engine", // core
+            "EnhancedInput", // input
         });
     }
 }
