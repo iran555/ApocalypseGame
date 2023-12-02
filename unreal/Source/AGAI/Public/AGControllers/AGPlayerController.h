@@ -14,59 +14,40 @@
 
 #pragma once
 #include "CoreMinimal.h"
+class UAGInputHandlers;
 class UInputMappingContext;
 class UInputAction;
 struct FInputActionValue;
 
 #include "AGPlayerController.generated.h"
 
-//! Reserved for "AAGPlayerController::InputMode"
-UENUM(BlueprintType)
-enum class EAGPlayerController_InputMode : uint8
-{
-	OnFoot
-};
-
 //# A controller is created to control a AGHuman with player input.
 //! Abstract class; Inheritance is allowed only from BP.
 UCLASS(Abstract, Blueprintable, DisplayName="Player Controller(AG)")
 class AAGPlayerController : public APlayerController
 {
-	GENERATED_BODY()
+    GENERATED_BODY()
 
 public:
-	//~ APlayerController
-	virtual void SetupInputComponent() override;
-	//~ End APlayerController
+    //~ APlayerController
+    virtual void SetupInputComponent() override;
+    //~ End APlayerController
 
 #pragma region Input
 
-public:
-	//# input mode is define what and how input handled.
-	//! On change call "UpdateInputMode".
-	UPROPERTY(VisibleInstanceOnly, Category="Input")
-	EAGPlayerController_InputMode InputMode = EAGPlayerController_InputMode::OnFoot;
-
-	void UpdateInputMode();
-
 protected:
-	//# InputMappingContext asset created for this class.
-	UPROPERTY(EditDefaultsOnly, Category="Input")
-	TSoftObjectPtr<UInputMappingContext> PlayerControllerInputMapping = nullptr;
+    //# input mode is define what and how input handled.
+    //! To change call "UpdateInputMode".
+    UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category="Input")
+    FName CurrentInputMode = "None";
 
-	//# Direct move input.
-	//* WASD in most games.
-	//! Holds index 0 at MappingContext. Carry 2D data.
-	UPROPERTY(EditDefaultsOnly, Category="Input|Actions")
-	TSoftObjectPtr<UInputAction> Move_InputAction;
-	void Move_InputHandel(const FInputActionValue& RawInput);
+public:
+    //# class that holds the handlers.
+    UPROPERTY(Transient)
+    UAGInputHandlers* InputHandlers;
 
-	//# Change the angel of look with this.
-	//* mouse in most games.
-	//! Holds index 1 at MappingContext. Carry 2D data.
-	UPROPERTY(EditDefaultsOnly, Category="Input|Actions")
-	TSoftObjectPtr<UInputAction> Look_InputAction;
-	void Look_InputHandel(const FInputActionValue& RawInput);
+    //# Change input mode.
+    void UpdateInputMode(FName InputModeName);
 
 #pragma endregion Input
 };
