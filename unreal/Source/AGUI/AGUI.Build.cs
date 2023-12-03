@@ -1,4 +1,4 @@
-﻿/* Copyright (C) 2023 Iran555 iran555@proton.me
+/* Copyright (C) 2023 Iran555 iran555@proton.me
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ public class AGUI : ModuleRules
 		PrivateDependencyModuleNames.AddRange(new[]
 		{
 			"CoreUObject", "Engine", // core
+			"UMG", // UI
 		});
 	}
 }
